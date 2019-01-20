@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class GameState {
     private ArrayList<Player> players;
     private ArrayList<Wall> walls;
+    private ArrayList<Bullet> bullets;
     GameState(ArrayList<Wall> walls) {
         players = new ArrayList<>();
         this.walls = walls;

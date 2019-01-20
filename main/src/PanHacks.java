@@ -4,21 +4,18 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import logic.Game;
 
-public class PanHacks extends Application {
+public class PanHacks {
 
         private Game game;
         private Logger logger;
 
-        @Override
-        public void init() throws Exception {
-            super.init();
-            logger = Logger.getLogger(PanHacks.class.getName());
+        public static void main(String[] args) {
+            Logger logger = Logger.getLogger(PanHacks.class.getName());
+            Game game = new Game(logger);
+            game.init();
+            game.setVisible(true);
+            game.start();
         }
-        @Override
-        public void start(Stage primaryStage) throws Exception {
-        game = new Game(logger);
-        game.init();
-        game.setVisible(true);
-        game.start();
-    }
+
+
 }
