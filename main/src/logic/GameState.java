@@ -16,7 +16,7 @@ public class GameState {
 
         //for testing
         players.add(new Player(new Vector(100, 100), 32, 1));
-        players.add(new Player(new Vector(300, 300), 32, 2));
+        //players.add(new Player(new Vector(300, 300), 32, 2));
     }
 
     void update(InputManager inputManager) {

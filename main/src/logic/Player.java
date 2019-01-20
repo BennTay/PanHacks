@@ -21,19 +21,19 @@ public class Player extends Entity {
         super.update(inputManager, gameState);
 
         if (InputManager.getKey("up", id)) {
-            this.cSpeed.y -= 5;
+            this.cSpeed.y -= 15;
         }
 
         if (InputManager.getKey("down", id)) {
-            this.cSpeed.y += 5;
+            this.cSpeed.y += 15;
         }
 
         if (InputManager.getKey("left", id)) {
-            this.cSpeed.x -= 5;
+            this.cSpeed.x -= 15;
         }
 
         if (InputManager.getKey("right", id)) {
-            this.cSpeed.x += 5;
+            this.cSpeed.x += 15;
         }
     }
 
