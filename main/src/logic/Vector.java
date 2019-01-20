@@ -11,6 +11,11 @@ public class Vector {
         this.y = y;
     }
 
+    public Vector(double x, double y) {
+        this.x = (float) x;
+        this.y = (float) y;
+    }
+
     public Vector add(Vector vector) {
         float x = this.x + vector.x;
         float y = this.y + vector.y;

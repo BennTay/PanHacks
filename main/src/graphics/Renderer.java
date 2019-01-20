@@ -50,8 +50,8 @@ public class Renderer extends JPanel {
 
     public void draw() {
         for (Player p:gameState.getPlayers()) {
-            float x = p.position.x;
-            float y = p.position.y;
+            float x = p.center.x;
+            float y = p.center.y;
             float r = p.radius;
             drawCircle(x, y, r, r);
         }
@@ -59,11 +59,11 @@ public class Renderer extends JPanel {
         // drawWall(100, 100, 100, 100);
 
         for (Wall p:gameState.getWalls()) {
-            float x = p.position.x;
-            float y = p.position.y;
+            float x = p.center.x;
+            float y = p.center.y;
             float w = p.side1;
             float h = p.side2;
-            drawWall(x, y, w, h);
+            drawWall(x + w/2, y + h/2, w, h);
         }
     }
 }

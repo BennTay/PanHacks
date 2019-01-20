@@ -1,9 +1,9 @@
 package graphics;
 
-import javax.swing.*;
 import java.awt.*;
 
 import logic.Entity;
+import logic.Vector;
 
 
 public class Wall extends Entity {
@@ -15,10 +15,10 @@ public class Wall extends Entity {
     private Color color;
 
     public Wall(int x, int y, int side1, int side2, Color color) {
-        this.x = x;
-        this.y = y;
+        this.center = new Vector(x, y);
         this.side1 = side1;
         this.side2 = side2;
+        this.radius = side1;
         this.color = color;
     }
 }

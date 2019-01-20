@@ -10,5 +10,6 @@
     <orderEntry type="library" name="com.google.guava:guava:Release" level="project" />
     <orderEntry type="library" name="com.opencsv:opencsv:4.4" level="project" />
     <orderEntry type="library" name="com.google.guava:guava:Release" level="project" />
+    <orderEntry type="library" name="com.google.code.gson:gson:2.8.5" level="project" />
   </component>
 </module>

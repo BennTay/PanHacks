@@ -8,10 +8,11 @@ import input.InputManager;
 public class Player extends Entity {
 
     public int id;
+    private int speed = 10;
 
     public Player(Vector center, float radius, int id) {
         super();
-        this.position = center;
+        this.center = center;
         this.radius = radius;
         this.id = id;
 
@@ -23,46 +24,54 @@ public class Player extends Entity {
         super.update(inputManager, gameState);
 
         if (InputManager.getKey("up", id)) {
-            this.cSpeed.y -= 5;
+            this.cSpeed.y -= speed;
         }
 
         if (InputManager.getKey("down", id)) {
-            this.cSpeed.y += 5;
+            this.cSpeed.y += speed;
         }
 
         if (InputManager.getKey("left", id)) {
-            this.cSpeed.x -= 5;
+            this.cSpeed.x -= speed;
         }
 
         if (InputManager.getKey("right", id)) {
-            this.cSpeed.x += 5;
+            this.cSpeed.x += speed;
         }
 
         //in each frame, check for collision for each player against all other players
-        for (Player p: gameState.getPlayers()) {
-            for (Player p1: gameState.getPlayers()) {
-                if (p!=p1) { //not ownself
+        for (Player p : gameState.getPlayers()) {
+            for (Player p1 : gameState.getPlayers()) {
+                if (p != p1) { //not ownself
                     p.collisionControl(p1);
                 }
-
-        for (Wall w: gameState.getWalls()) {
-            Vector delta = w.position.sub(this.position);
-            if (Math.abs(delta.x) + Math.abs(delta.y) < this.radius + w.radius) {
-
-
             }
         }
+
+        for (Wall w: gameState.getWalls()) {
+            Vector delta = w.center.sub(this.center);
+            if (Math.abs(delta.x) * 2< this.radius + w.radius
+             && Math.abs(delta.y) * 2< this.radius + w.radius) {
+                double angle = Math.atan2(-delta.y, -delta.x);
+                this.cSpeed = this.cSpeed.add(new Vector(Math.cos(angle), Math.sin(angle)).mulConst(10));
+                // Vector pos = new Vector((float) Math.cos(angle), (float) Math.sin(angle)).mulConst(this.radius + w.radius).mulConst(0.5f).add(w.center);
+                // this.center = pos;
+            }
+        }
+
+
     }
+
 
 
     /**
      *Method to check if the two circles collided, by checking if the distance between the centers of the two circles is
      *more or less than the sum of the two radii
-     */
+     **/
     public boolean overlaps(Player other) {
-        if ( Math.abs(position.x - other.position.x) > radius + other.radius ) {
+        if ( Math.abs(center.x - other.center.x) > radius + other.radius ) {
             return false;
-        } else if ( Math.abs(position.y - other.position.y) > radius + other.radius ) {
+        } else if ( Math.abs(center.y - other.center.y) > radius + other.radius ) {
             return false;
         } else {
             return true;

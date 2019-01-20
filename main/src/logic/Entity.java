@@ -6,12 +6,12 @@ public class Entity {
 
     public Vector cSpeed;
 
-    public Vector position;
+    public Vector center;
     public float radius;
 
     public Entity() {
         cSpeed = Vector.zero;
-        position = Vector.zero;
+        center = Vector.zero;
         radius = 0;
     }
 
@@ -21,12 +21,12 @@ public class Entity {
     }
 
     /**
-     * Updates the position
+     * Updates the center
      */
     public void updatePhysics() {
         cSpeed = cSpeed.mulConst(0.95f);
         Vector dist = cSpeed.mulConst(Time.deltaTime);
-        position = position.add(dist); //updating circle's position += speed*deltaTime, updating circle's new position
+        center = center.add(dist); //updating circle's center += speed*deltaTime, updating circle's new center
     }
 
 }

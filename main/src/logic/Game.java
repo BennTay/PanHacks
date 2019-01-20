@@ -28,7 +28,6 @@ public class Game extends JFrame {
     }
 
     public void initUI() {
-
        add(renderer);
        setTitle("PanHacks Game");
        setSize(1200, 800);

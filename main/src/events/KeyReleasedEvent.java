@@ -15,7 +15,6 @@ public class KeyReleasedEvent extends BaseEvent {
 
     @Override
     public String toString() {
-        //TODO: MESSAGE
-        return "";
+        return String.format("%d:false", this.keyEvent.getKeyCode());
     }
 }
